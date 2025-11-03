@@ -701,28 +701,30 @@ Rust側では、このレベルの自動最適化機能は存在しません。
 
 以下のフローチャートで、PythonとRustのどちらを選ぶべきか判断できます：
 
-```
-プロジェクト開始
-  ↓
-[Q1] 研究/プロトタイピングか？
-  → Yes → Python（JAX/PyTorch）
-  → No → [Q2]へ
-  
-[Q2] 既存のPyTorchモデルを使うか？
-  → Yes → Python or tch-rs（PyTorchバインディング）
-  → No → [Q3]へ
-  
-[Q3] データフレーム処理が主体か？
-  → Yes → Python（RAPIDS cuDF）
-  → No → [Q4]へ
-  
-[Q4] 極限の性能・省メモリが必要か？
-  → Yes → Rust（カスタムカーネル）+ Python（学習ループ）
-  → No → [Q5]へ
-  
-[Q5] プロダクション環境・組み込みか？
-  → Yes → Rust（burn/candle）
-  → No → Python（デフォルト選択）
+```mermaid
+flowchart TD
+    Start([プロジェクト開始]) --> Q1{研究/<br/>プロトタイピング?}
+    Q1 -->|Yes| Python1[Python<br/>JAX/PyTorch]
+    Q1 -->|No| Q2{既存PyTorch<br/>モデル使用?}
+    
+    Q2 -->|Yes| PyTorch[Python or<br/>tch-rs]
+    Q2 -->|No| Q3{データフレーム<br/>処理が主体?}
+    
+    Q3 -->|Yes| RAPIDS[Python<br/>RAPIDS cuDF]
+    Q3 -->|No| Q4{極限の性能/<br/>省メモリ必要?}
+    
+    Q4 -->|Yes| Hybrid[Rust カーネル<br/>+ Python 学習]
+    Q4 -->|No| Q5{プロダクション/<br/>組み込み?}
+    
+    Q5 -->|Yes| Rust1[Rust<br/>burn/candle]
+    Q5 -->|No| Python2[Python<br/>デフォルト]
+    
+    style Python1 fill:#4B8BBE
+    style PyTorch fill:#4B8BBE
+    style RAPIDS fill:#4B8BBE
+    style Python2 fill:#4B8BBE
+    style Rust1 fill:#CE422B
+    style Hybrid fill:#FFD43B
 ```
 
 ### ハイブリッドアプローチ：現実解

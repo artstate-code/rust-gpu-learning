@@ -394,6 +394,30 @@ Rustの**unsafe**は、コンパイラのメモリ安全性チェックを回避
 
 ### 安全な抽象化パターン
 
+**unsafe境界の設計**:
+
+```mermaid
+graph TD
+    subgraph Safe[安全な領域 Safe Rust]
+        User[ユーザーコード] --> API[公開API<br/>安全な型]
+    end
+    
+    subgraph Wrapper[ラッパー層]
+        API --> Validation[入力検証<br/>境界チェック]
+        Validation --> Unsafe[unsafe ブロック<br/>最小範囲]
+    end
+    
+    subgraph FFI[FFI層]
+        Unsafe --> C_API[C/CUDA API<br/>生ポインタ]
+    end
+    
+    style User fill:#e1ffe1
+    style API fill:#e1ffe1
+    style Validation fill:#fff4e1
+    style Unsafe fill:#ffe1e1
+    style C_API fill:#ff9999
+```
+
 #### パターン1: Safe Wrapper
 
 ```rust

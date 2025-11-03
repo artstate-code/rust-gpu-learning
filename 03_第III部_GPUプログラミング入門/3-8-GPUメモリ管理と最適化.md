@@ -426,12 +426,35 @@ fn stream_example() -> Result<(), CudaError> {
 
 **3段階パイプライン**:
 
+```mermaid
+gantt
+    title ストリームによる並行実行
+    dateFormat X
+    axisFormat %L
+    
+    section Stream 0
+    H2D_0    :s0h0, 0, 1
+    Kernel_0 :s0k0, after s0h0, 1
+    D2H_0    :s0d0, after s0k0, 1
+    H2D_3    :s0h3, after s0d0, 1
+    Kernel_3 :s0k3, after s0h3, 1
+    
+    section Stream 1
+    H2D_1    :s1h1, 1, 1
+    Kernel_1 :s1k1, after s1h1, 1
+    D2H_1    :s1d1, after s1k1, 1
+    H2D_4    :s1h4, after s1d1, 1
+    
+    section Stream 2
+    H2D_2    :s2h2, 2, 1
+    Kernel_2 :s2k2, after s2h2, 1
+    D2H_2    :s2d2, after s2k2, 1
 ```
-時間 →
-Stream 0: |H2D_0|Kernel_0|D2H_0|     |H2D_3|Kernel_3|D2H_3|
-Stream 1:      |H2D_1|Kernel_1|D2H_1|     |H2D_4|...
-Stream 2:           |H2D_2|Kernel_2|D2H_2|     |...
-```
+
+**凡例**:
+- H2D: Host to Device 転送
+- Kernel: GPU計算
+- D2H: Device to Host 転送
 
 **実装例**:
 

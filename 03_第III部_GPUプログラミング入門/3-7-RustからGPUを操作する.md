@@ -607,16 +607,25 @@ cuobjdump -sass my_kernel.cubin
 
 ### まとめ：GPU API の選択指針
 
-```
-用途は？
-  → NVIDIA GPU専用、最高性能
-      → cudarc（CUDA直接）
-  → クロスプラットフォーム
-      → wgpu（Vulkan/Metal/DX12）
-  → 型安全性重視
-      → Rust-GPU（SPIR-V）
-  → 既存Python資産活用
-      → PyO3 + PyTorch/CuPy
+```mermaid
+flowchart TD
+    Start([GPU API選択]) --> Q1{対応GPU}
+    
+    Q1 -->|NVIDIA専用| Q2{性能要件}
+    Q1 -->|マルチベンダー| Q3{実行環境}
+    
+    Q2 -->|最高性能| CUDA[cudarc<br/>CUDA直接制御]
+    Q2 -->|開発速度| PyO3[PyO3 + PyTorch]
+    
+    Q3 -->|ネイティブ| wgpu[wgpu<br/>Vulkan/Metal/DX12]
+    Q3 -->|ブラウザ| WebGPU[wgpu + WASM<br/>WebGPU]
+    Q3 -->|型安全重視| RustGPU[Rust-GPU<br/>SPIR-V]
+    
+    style CUDA fill:#76B900
+    style PyO3 fill:#4B8BBE
+    style wgpu fill:#CE422B
+    style WebGPU fill:#FFD43B
+    style RustGPU fill:#CE422B
 ```
 
 | 用途 | 推奨 | 理由 |

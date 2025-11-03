@@ -20,17 +20,27 @@ CUDAプログラミングモデルは、**3段階の階層**でスレッドを�
 
 **階層の図解**:
 
-```
-Grid (2D or 3D)
-├── Block(0,0)
-│   ├── Warp 0: Threads 0-31
-│   ├── Warp 1: Threads 32-63
-│   └── ...
-├── Block(0,1)
-│   ├── Warp 0: Threads 0-31
-│   └── ...
-└── Block(1,0)
-    └── ...
+```mermaid
+graph TD
+    Grid[Grid<br/>カーネル全体] --> B00[Block 0,0]
+    Grid --> B01[Block 0,1]
+    Grid --> B10[Block 1,0]
+    Grid --> Bdot[...]
+    
+    B00 --> W0[Warp 0<br/>Threads 0-31]
+    B00 --> W1[Warp 1<br/>Threads 32-63]
+    B00 --> W2[Warp 2<br/>Threads 64-95]
+    B00 --> Wdot[...]
+    
+    W0 --> T0[Thread 0]
+    W0 --> T1[Thread 1]
+    W0 --> Tdot[...]
+    W0 --> T31[Thread 31]
+    
+    style Grid fill:#e1f5ff
+    style B00 fill:#ffe1f5
+    style W0 fill:#fff4e1
+    style T0 fill:#e1ffe1
 ```
 
 ### Python（CuPy）での起動
@@ -221,6 +231,32 @@ GPUは複雑なメモリ階層を持ち、アクセスパターンが性能を�
 [^3]: CUDA C++ Best Practices Guide, Chapter 9: Memory Optimizations, https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/
 
 ### メモリ階層の全体像
+
+```mermaid
+graph TD
+    subgraph SM[Streaming Multiprocessor]
+        Reg[レジスタ<br/>~64 KB/SM<br/>1 cycle]
+        Shared[シェアードメモリ<br/>48-164 KB/SM<br/>~20 cycles]
+        L1[L1 キャッシュ<br/>128 KB/SM<br/>~25 cycles]
+    end
+    
+    L2[L2 キャッシュ<br/>数MB<br/>~200 cycles]
+    Global[グローバルメモリ<br/>数GB~80GB<br/>~400 cycles]
+    Host[ホストメモリ<br/>数百GB<br/>~100,000 cycles<br/>PCIe経由]
+    
+    Reg -.速い.-> Shared
+    Shared -.-> L1
+    L1 -.-> L2
+    L2 -.-> Global
+    Global -.遅い.-> Host
+    
+    style Reg fill:#90EE90
+    style Shared fill:#98FB98
+    style L1 fill:#ADFF2F
+    style L2 fill:#FFD700
+    style Global fill:#FFA500
+    style Host fill:#FF6347
+```
 
 | メモリ種類 | サイズ | 帯域幅 | レイテンシ | スコープ | 用途 |
 |-----------|--------|--------|-----------|---------|------|
