@@ -38,21 +38,21 @@ navigation:
   - title: ホーム
     url: /
   - title: 第0部：環境構築
-    url: /第0部/
+    url: /00_第0部_環境構築とクイックスタート/
   - title: 第I部：基礎理論
-    url: /第1部/
+    url: /01_第I部_基礎理論と全体像/
   - title: 第II部：Rust数値処理
-    url: /第2部/
+    url: /02_第II部_Rustによる数値処理と安全設計/
   - title: 第III部：GPUプログラミング
-    url: /第3部/
+    url: /03_第III部_GPUプログラミング入門/
   - title: 第IV部：MLエンジン構築
-    url: /第4部/
+    url: /04_第IV部_機械学習エンジンの構築/
   - title: 第V部：応用と高度化
-    url: /第5部/
+    url: /05_第V部_応用と高度化/
   - title: 第VI部：ケーススタディ
-    url: /第6部/
+    url: /06_第VI部_ケーススタディと実践/
   - title: 第VII部：展望
-    url: /第7部/
+    url: /07_第VII部_展望と設計指針/
 
 # 除外ファイル
 exclude:
