@@ -1,0 +1,40 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* MathJax 数式のスタイリング */
+.MathJax {
+  outline: 0;
+}
+
+mjx-container {
+  display: inline-block;
+  margin: 0.5em 0;
+}
+
+mjx-container[display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+/* コードブロックと数式の区別を明確に */
+code.has-jax {
+  font: inherit;
+  font-size: 100%;
+  background: inherit;
+  border: inherit;
+  color: inherit;
+}
+
+/* テーブル内の数式の調整 */
+table mjx-container {
+  margin: 0.2em 0;
+}
+
+/* インライン数式のベースライン調整 */
+mjx-container[jax="CHTML"][display="true"] {
+  margin: 1em 0;
+}
+

@@ -6,6 +6,10 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  math_engine: mathjax
+  math_engine_opts:
+    preview: true
+    preview_as_code: true
 
 # GitHub Pages設定
 baseurl: "/rust-gpu-learning"
