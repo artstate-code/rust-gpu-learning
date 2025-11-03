@@ -1,0 +1,61 @@
+title: Rustで始めるGPUネイティブ機械学習
+description: Rust、GPU、深層学習の三位一体で学ぶ、次世代機械学習基盤の実装ガイド
+theme: jekyll-theme-cayman
+lang: ja
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# GitHub Pages設定
+baseurl: "/rust-gpu-learning"
+url: "https://artstate-code.github.io"
+
+# プラグイン
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-relative-links
+  - jekyll-titles-from-headings
+
+# 相対リンクの有効化
+relative_links:
+  enabled: true
+  collections: false
+
+# ファイルからタイトルを自動生成
+titles_from_headings:
+  enabled: true
+  strip_title: false
+  collections: false
+
+# ナビゲーション
+navigation:
+  - title: ホーム
+    url: /
+  - title: 第I部：基礎理論
+    url: /第1部/
+  - title: 第II部：Rust数値処理
+    url: /第2部/
+  - title: 第III部：GPUプログラミング
+    url: /第3部/
+  - title: 第IV部：MLエンジン構築
+    url: /第4部/
+  - title: 第V部：応用と高度化
+    url: /第5部/
+  - title: 第VI部：ケーススタディ
+    url: /第6部/
+  - title: 第VII部：展望
+    url: /第7部/
+  - title: 付録
+    url: /付録/
+
+# 除外ファイル
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .github
+
