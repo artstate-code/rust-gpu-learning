@@ -37,6 +37,8 @@ titles_from_headings:
 navigation:
   - title: ホーム
     url: /
+  - title: 第0部：環境構築
+    url: /第0部/
   - title: 第I部：基礎理論
     url: /第1部/
   - title: 第II部：Rust数値処理
