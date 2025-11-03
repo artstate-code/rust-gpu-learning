@@ -275,5 +275,185 @@ Rust機械学習エコシステムの現状と未来を展望します。
 
 ---
 
+## 📚 参考文献
+
+今後の記事執筆にあたり、以下の文献を参考資料としてご活用いただけます。
+
+### 論文（arXiv等）
+
+#### GPU最適化・並列処理
+
+- **FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness**  
+  Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, Christopher Ré (2022)  
+  https://arxiv.org/abs/2205.14135  
+  *Transformerの注意機構を高速化する画期的な手法*
+
+- **FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning**  
+  Tri Dao (2023)  
+  https://arxiv.org/abs/2307.08691  
+  *Flash Attentionのさらなる改善版*
+
+- **Triton: An Intermediate Language and Compiler for Tiled Neural Network Computations**  
+  Philippe Tillet, H.T. Kung, David Cox (2019)  
+  https://www.eecs.harvard.edu/~htk/publication/2019-mapl-tillet-kung-cox.pdf  
+  *GPUカーネルを高レベルに記述するためのDSL*
+
+#### 分散学習・大規模モデル
+
+- **Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism**  
+  Mohammad Shoeybi et al. (2019)  
+  https://arxiv.org/abs/1909.08053  
+  *モデル並列化による大規模言語モデルの学習*
+
+- **ZeRO: Memory Optimizations Toward Training Trillion Parameter Models**  
+  Samyam Rajbhandari et al. (2019)  
+  https://arxiv.org/abs/1910.02054  
+  *メモリ最適化による超大規模モデル学習*
+
+- **GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism**  
+  Yanping Huang et al. (2019)  
+  https://arxiv.org/abs/1811.06965  
+  *パイプライン並列化の手法*
+
+#### 数値計算・最適化
+
+- **Mixed Precision Training**  
+  Paulius Micikevicius et al. (2017)  
+  https://arxiv.org/abs/1710.03740  
+  *FP16/FP32混合精度学習の基礎*
+
+- **Highly Scalable Deep Learning Training System with Mixed-Precision**  
+  Xianyan Jia et al. (2018)  
+  https://arxiv.org/abs/1807.11205  
+  *ImageNetを4分で学習する混合精度システム*
+
+#### グラフ処理・GPU応用
+
+- **Gunrock: A High-Performance Graph Processing Library on the GPU**  
+  Yangzihao Wang et al. (2015)  
+  https://arxiv.org/abs/1501.05387  
+  *GPU上での高性能グラフ処理*
+
+- **MaxK-GNN: Extremely Fast GPU Kernel Design for Accelerating Graph Neural Networks Training**  
+  Hongwu Peng et al. (2023)  
+  https://arxiv.org/abs/2312.08656  
+  *GNNトレーニング高速化のためのカーネル設計*
+
+### 公式ドキュメント・ガイド
+
+#### NVIDIA CUDA
+
+- **CUDA C++ Programming Guide**  
+  https://docs.nvidia.com/cuda/cuda-c-programming-guide/  
+  *CUDA プログラミングの公式ガイド（必読）*
+
+- **CUDA C++ Best Practices Guide**  
+  https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/  
+  *パフォーマンス最適化のベストプラクティス*
+
+- **cuBLAS Documentation**  
+  https://docs.nvidia.com/cuda/cublas/  
+  *BLAS演算の高速ライブラリ*
+
+- **cuDNN Developer Guide**  
+  https://docs.nvidia.com/deeplearning/cudnn/developer-guide/  
+  *深層学習向け最適化ライブラリ*
+
+- **Nsight Compute Documentation**  
+  https://docs.nvidia.com/nsight-compute/  
+  *CUDAカーネルのプロファイリングツール*
+
+#### AMD ROCm
+
+- **ROCm Documentation**  
+  https://rocm.docs.amd.com/  
+  *AMD ROCmの公式ドキュメント*
+
+### 書籍
+
+#### C/C++によるGPUプログラミング
+
+- **Programming Massively Parallel Processors: A Hands-on Approach (4th Edition)**  
+  David B. Kirk, Wen-mei W. Hwu (2022)  
+  *CUDAプログラミングの定番教科書*  
+  目次：GPU Architecture, CUDA Programming Model, Memory Hierarchy, Performance Optimization, etc.
+
+- **CUDA Cプロフェッショナルプログラミング**  
+  John Cheng, Max Grossman, Ty McKercher（日本語訳版）  
+  *CUDAの実践的なプログラミング技法*
+
+- **GPU並列図形処理入門 ― CUDA・OpenGLの導入と活用**  
+  伊藤 智義 編著 (2014)  
+  https://gihyo.jp/book/2014/978-4-7741-6304-8  
+  *日本語のGPUプログラミング入門書*
+
+- **GPUプログラミング入門 ― CUDA5による実装**  
+  伊藤 智義 編 (2013)  
+  https://www.kspub.co.jp/book/detail/1538207.html  
+  *CUDA5を用いた実装解説*
+
+#### PythonによるGPU機械学習
+
+- **Pythonによるディープラーニング**  
+  François Chollet 著、巣籠 悠輔 訳 (2018)  
+  https://tatsu-zine.com/books/deeplearning-with-python  
+  *Kerasの作者によるディープラーニング解説*
+
+- **ゼロから作るDeep Learning ❸ ― フレームワーク編**  
+  斎藤 康毅 著 (2020)  
+  *深層学習フレームワークを自作して理解する*
+
+- **機械学習と深層学習 ― Pythonによるシミュレーション**  
+  小高 知宏 著 (2019)  
+  https://www.ohmsha.co.jp/book/9784274222269/  
+  *Pythonでの機械学習シミュレーション*
+
+- **Pythonによるはじめての機械学習プログラミング**  
+  技術評論社 (2019)  
+  https://gihyo.jp/book/2019/978-4-297-10525-9  
+  *初学者向けの機械学習入門*
+
+- **Python機械学習プログラミング 第3版**  
+  Sebastian Raschka, Vahid Mirjalili 著  
+  *scikit-learn, TensorFlow, PyTorchを用いた実践*
+
+#### 深層学習全般
+
+- **Deep Learning (Adaptive Computation and Machine Learning series)**  
+  Ian Goodfellow, Yoshua Bengio, Aaron Courville (2016)  
+  https://www.deeplearningbook.org/  
+  *深層学習の理論的基礎（通称「花本」）*
+
+- **ディープラーニング（岡谷貴之 著）**  
+  機械学習プロフェッショナルシリーズ (2015)  
+  *日本語での深層学習理論解説*
+
+### オンラインリソース
+
+#### チュートリアル・記事
+
+- **PyTorch CUDA Semantics**  
+  https://pytorch.org/docs/stable/notes/cuda.html  
+  *PyTorchでのCUDA使用方法*
+
+- **CUDAチュートリアル（理化学研究所）**  
+  *CUDAプログラミングの基礎から応用まで*
+
+- **The Rust Performance Book**  
+  https://nnethercote.github.io/perf-book/  
+  *Rustのパフォーマンス最適化*
+
+#### コミュニティ・フォーラム
+
+- **NVIDIA Developer Forums**  
+  https://forums.developer.nvidia.com/  
+  *CUDA開発者向けフォーラム*
+
+- **Rust Users Forum**  
+  https://users.rust-lang.org/  
+  *Rustユーザーコミュニティ*
+
+---
+
 **Happy Learning! 🦀✨**
 
