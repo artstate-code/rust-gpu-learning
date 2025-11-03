@@ -51,8 +51,6 @@ navigation:
     url: /第6部/
   - title: 第VII部：展望
     url: /第7部/
-  - title: 付録
-    url: /付録/
 
 # 除外ファイル
 exclude:
