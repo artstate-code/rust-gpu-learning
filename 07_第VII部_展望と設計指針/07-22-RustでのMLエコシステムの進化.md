@@ -1,3 +1,7 @@
+[📚 目次](../README.md) | [⬅️ 第21章](../06_第VI部_ケーススタディと実践/06-21-実践プロジェクト.md)
+
+---
+
 # 第 19 章　Rust での ML エコシステムの進化
 
 この章では、Rust機械学習エコシステムの現状を俯瞰し、今後の展望を示します。主要フレームワークの特徴、Python/TensorFlowとの関係、Rustが担うべき役割について議論します。
@@ -735,3 +739,6 @@ impl TradingModel {
 [^6] tch-rs: https://github.com/LaurentMazare/tch-rs
 
 [^7] ONNX: https://onnx.ai/
+---
+
+[📚 目次に戻る](../README.md) | [⬅️ 第21章: 実践プロジェクト](../06_第VI部_ケーススタディと実践/06-21-実践プロジェクト.md)

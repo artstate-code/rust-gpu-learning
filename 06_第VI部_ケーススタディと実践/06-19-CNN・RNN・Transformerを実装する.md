@@ -1,3 +1,7 @@
+[📚 目次](../README.md) | [⬅️ 第18章](../05_第V部_応用と高度化/05-18-セキュリティと信頼性.md) | [➡️ 第20章](06-20-エンドツーエンド最適化.md)
+
+---
+
 # 第 16 章　CNN・RNN・Transformer を実装する
 
 この章では、代表的なニューラルネットワークアーキテクチャ（畳み込みニューラルネットワーク、再帰型ニューラルネットワーク、Transformer）をRustで実装します。各アーキテクチャの数学的原理から、Python実装、Rust実装、GPU最適化まで段階的に学びます。
@@ -1989,3 +1993,6 @@ fn flash_attention_rust() {
 [^9] Dao, T., et al. (2022). "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness." NeurIPS.
 
 [^10] Shazeer, N. (2019). "Fast Transformer Decoding: One Write-Head is All You Need." arXiv.
+---
+
+[📚 目次に戻る](../README.md) | [⬅️ 第18章: セキュリティと信頼性](../05_第V部_応用と高度化/05-18-セキュリティと信頼性.md) | [➡️ 第20章: エンドツーエンド最適化](06-20-エンドツーエンド最適化.md)

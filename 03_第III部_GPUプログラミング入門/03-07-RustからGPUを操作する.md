@@ -1,3 +1,7 @@
+[📚 目次](../README.md) | [⬅️ 第6章](03-06-GPUアーキテクチャの理解.md) | [➡️ 第8章](03-08-GPUメモリ管理と最適化.md)
+
+---
+
 # 第 7 章　Rust から GPU を操作する
 
 この章では、RustからGPUを制御する各種ライブラリとAPIを学びます。CUDA、ROCm、wgpuの3つのバックエンドを比較し、用途に応じた選択方法を示します。
@@ -650,3 +654,6 @@ flowchart TD
 6. Embark Studios. "Rust-GPU." https://github.com/EmbarkStudios/rust-gpu
 7. Khronos Group. "WebGPU Specification." https://www.w3.org/TR/webgpu/
 8. Nickolls, J., & Dally, W. J. (2010). "The GPU Computing Era." IEEE Micro, 30(2), 56-69.
+---
+
+[📚 目次に戻る](../README.md) | [⬅️ 第6章: GPUアーキテクチャの理解](03-06-GPUアーキテクチャの理解.md) | [➡️ 第8章: GPUメモリ管理と最適化](03-08-GPUメモリ管理と最適化.md)
